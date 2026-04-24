@@ -72,8 +72,28 @@ html 중간에 조건문 쓰려면 상항연산자
 }
 
 
+## 작성일: 2026-04-24
+props 로 부모 -> 자식 state 전송
 
+1. 자식컴포넌트 사용하는 곳에 가서 <자식컴포넌트 작명={state이름} /> 
+2. 자식컴포넌트 만드는 function으로 가서 props라는 파라미터 등록 후 props.작명 사용
 
+function App (){
+  let [글제목, 글제목변경] = useState(['남자코트 추천', '강남 우동맛집', '파이썬독학']);
+  return (
+    <div>
+      <Modal 글제목={글제목}></Modal>
+    </div>
+  )
+}
 
-
+function Modal(props){
+  return (
+    <div className="modal">
+      <h4>{ props.글제목[0] }</h4>
+      <p>날짜</p>
+      <p>상세내용</p>
+    </div>
+  )
+}
 
