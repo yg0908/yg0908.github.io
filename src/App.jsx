@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import React, { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -81,7 +81,7 @@ function App() {
       {
         modal == true ? <Modal title={title} 글제목변경={글제목변경} 글제목={글제목}/> : null
       }
-
+      <Modal2></Modal2>
     </div>
   )
 }
@@ -95,6 +95,25 @@ function Modal(props){
       <button>글수정</button>
     </div>
   )
+}
+
+class Modal2 extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      name : 'kim',
+      age : 20
+    }
+  }
+  render(){
+    return(
+      <div>안녕 {this.state.name}
+        <button onClick={()=>{
+          this.setState({name: 'lee'})
+        }}>버튼</button>
+      </div>
+    )
+  }
 }
 
 export default App
